@@ -1,0 +1,55 @@
+@use 'tools' as *;
+
+:root{
+    // цвета
+    --dark-color: #141414;
+    --dark-color-10: #1A1A1A;
+    --dark-color-15: #262626;
+    --dark-color-20: #333333;
+    --dark-color-40: #666666;
+
+    --gray-color-50: #7E7E81;
+    --gray-color-60: #98989A;
+
+    --accent-color: #FFD11A;
+  
+    --red-color: #FF5500;
+
+    --light-color: #FFF;
+
+    // шрифты
+    --font-base: 'Inter', sans-serif;
+    --font-accent: 'Kumbh Sans', sans-serif;
+
+    // размеры контейнера
+    --container-width: #{rem(1600)}; // такой синтаксис нужен чтобы функция scss корректно работала с переменными css
+    --container-padding-x: #{rem(16)}; // берется из мобилки, по значению отступов от контейнера
+
+    // радиус рамок
+    --card-border-radius: ;
+    --input-border-radius: ;
+    --btn-border-radius: #{rem(12)};
+    --circle-border-radius: 50%;
+
+    // border-bottom
+    --border: #{rem(1)} solid var(--dark-color-15);
+
+    // тени
+    --box-shadow: ;
+
+    // отступы внутри кнопок
+    --btn-padding: ;
+
+    // отступы внутри input
+    --input-padding: ;
+
+    // высоты элементов
+    --input-height: ;
+
+    // длительность переходов
+    --transition-duration: 0.3s;
+
+    @include laptop{
+        --container-width: #{rem(1280)};
+    }
+}

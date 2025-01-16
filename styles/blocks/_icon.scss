@@ -1,0 +1,25 @@
+@use '../tools' as *;  
+
+.icon{
+    display: inline-flex;
+    align-items: center;  // центрирование элементов в контейнере по вертикали, иконки и текста
+    column-gap: rem(14); // оказывается это работает даже если элемент прописан через ::after
+
+    &::after{ // общие стили для всех иконок
+        --size: #{rem(17)};
+
+        @include square(var(--size));
+
+        content: '';
+        flex-shrink: 0;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    &--yellow-arrow{ // модификатор конкретной иконки
+        &::after{
+            background-image: url('../../assets/icons/arrow-up-right--yellow.svg');
+        }
+    }
+}

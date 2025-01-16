@@ -1,0 +1,38 @@
+@use '../tools' as *;
+
+.btn{
+    display: inline-flex;
+    justify-content: center;
+    padding: rem(18) rem(24);
+    background-color: var(--dark-color);
+    border-radius: var(--btn-border-radius);
+    font-size: rem(18);
+    color: var(--gray-color-60);
+    white-space: nowrap;
+    border: var(--border);
+
+    @include laptop{
+        padding: rem(14) rem(20);
+        font-size: rem(14);
+        border-radius: rem(8);
+    }
+
+    @include hover{
+        color: var(--accent-color);
+        border-color: var(--accent-color);
+        background-color: var(--gray-color-15);
+    }
+
+    &--contact{
+        padding: rem(14) rem(20);
+        background-color: var(--accent-color);
+        border-radius: rem(10);
+        font-weight: 500;
+        color: var(--dark-color);
+        border-color: var(--accent-color);
+
+        @include hover{
+            color: var(--accent-color);
+        }
+    }
+}

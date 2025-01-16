@@ -1,0 +1,51 @@
+@use '../tools' as *;  // две точки нужны для выхода с уровня blocks
+
+.header{
+
+    &__promo {
+        padding: rem(20);
+        text-align: center;
+        border-bottom: var(--border);
+    }
+
+    &__main{
+        padding: rem(24);
+        background-color: var(--dark-color-10);
+        border-bottom: var(--border);
+
+        &-inner{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            column-gap: 1rem;
+        }
+    }
+
+    &__mobile-overlay{
+        @include mobile-above{
+            display: contents; // как бы отключает обертку на экранах выше разрешения мобилки что позволяет правильно располодить элементы
+        }
+    }
+
+    &__menu{
+        &-list{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: rem(16); // потому что границы ссылки(внутренний отступ) равны 24, а расстояние между элементами ссылки 40, 40-16=24 - фактическое расстоние между элементами списка
+            
+        }
+
+        &-link{
+            padding: rem(14) rem(24);
+
+            &.is-active{
+                color: var(--light-color);
+                background-color: var(--dark-color);
+                border: rem(1) solid var(--dark-color-20);
+                border-radius: rem(10);
+                font-weight: 500;
+            }
+        }
+    }
+}
