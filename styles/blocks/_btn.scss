@@ -34,5 +34,9 @@
         @include hover{
             color: var(--accent-color);
         }
+
+        @include laptop{
+            padding: rem(10) rem(14);
+        }
     }
 }

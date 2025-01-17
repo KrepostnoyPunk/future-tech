@@ -20,6 +20,10 @@
     &--yellow-arrow{ // модификатор конкретной иконки
         &::after{
             background-image: url('../../assets/icons/arrow-up-right--yellow.svg');
+
+            @include laptop{
+                --size: #{rem(14)};
+            }
         }
     }
 }

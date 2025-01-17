@@ -1,17 +1,43 @@
 @use '../tools' as *;  // две точки нужны для выхода с уровня blocks
 
 .header{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    animation-name: header-scroll;
+    animation-fill-mode: both; // чтобы останавливалась по завершении
+    animation-timeline: scroll(); // автоматически преобразует позицию в диапазоне прокрутки в процентное соотношение прогресса анимации
+    animation-range: rem(100) rem(200); // промежуток на котором анимация сработает с 100 по 200 пикселей от верха страницы
+
+    @keyframes header-scroll {
+        100% {
+            box-shadow: 0 0 1rem 0 var(--accent-color);
+        }
+    }
 
     &__promo {
-        padding: rem(20);
+        padding-block: rem(20);
         text-align: center;
         border-bottom: var(--border);
+        background-color: var(--dark-color);
+
+        @include mobile{
+            padding-block: rem(14);
+        }
     }
 
     &__main{
-        padding: rem(24);
+        padding-block: rem(24);
         background-color: var(--dark-color-10);
         border-bottom: var(--border);
+
+        @include laptop{
+            padding-block: rem(30);
+        }
+
+        @include mobile{
+            padding-block: rem(20);
+        }
 
         &-inner{
             display: flex;
@@ -25,19 +51,52 @@
         @include mobile-above{
             display: contents; // как бы отключает обертку на экранах выше разрешения мобилки что позволяет правильно располодить элементы
         }
+
+        @include mobile{
+            position: fixed;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: var(--dark-color-10);
+            padding: 1rem;
+            row-gap: 3rem;
+
+            &:not(.is-active){
+                @include hide;
+
+                translate: 100%;
+            }
+        }
     }
 
     &__menu{
+        @include mobile{
+            overflow: auto;
+        }
+
         &-list{
             display: flex;
             justify-content: center;
             align-items: center;
-            column-gap: rem(16); // потому что границы ссылки(внутренний отступ) равны 24, а расстояние между элементами ссылки 40, 40-16=24 - фактическое расстоние между элементами списка
+            column-gap: rem(16); // потому что границы ссылки(внутренний горизонтальный отступ) равны 24, а расстояние между элементами ссылки 40, 40-16=24 - фактическое расстоние между элементами списка
+
+            @include laptop{
+                column-gap: rem(6);
+            }
             
+            @include mobile{
+                flex-direction: column;
+                row-gap: 1rem;
+            }
         }
 
         &-link{
             padding: rem(14) rem(24);
+
+            @include laptop{
+                padding: rem(10) rem(18);
+            }
 
             &.is-active{
                 color: var(--light-color);
@@ -46,6 +105,14 @@
                 border-radius: rem(10);
                 font-weight: 500;
             }
+        }
+    }
+
+    &__contact-link{
+        @include mobile{
+            width: 100%;
+            max-width: rem(260);
+            align-self: center;
         }
     }
 }

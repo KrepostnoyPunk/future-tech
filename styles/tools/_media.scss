@@ -37,7 +37,7 @@ $mobile-s: 480.98;
 }
 
 @mixin mobile{
-    @media (width <= rem($mobile)) {
+    @media (width <= rem($mobile)) { // если ширина меньше или равна то...
         @content;
     }
 }

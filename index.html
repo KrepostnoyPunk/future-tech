@@ -9,8 +9,7 @@
     <script src="./scripts/main.js" type="module" defer></script>
 </head>
 <body>
-    
-    <header class="header">
+    <header class="header" data-js-header>
         <div class="header__promo">
             <div class="header__promo-inner container">
                 <a href="/" class="header__promo-link">
@@ -36,7 +35,7 @@
                     height="50"
                      >
                 </a> 
-                <div class="header__mobile-overlay">
+                <div class="header__mobile-overlay" data-js-header-overlay>
                     <nav class="header__menu">
                         <ul class="header__menu-list">
                             <li class="header__menu-item">
@@ -70,6 +69,7 @@
                 type="button"
                 aria-label="Open navigation menu"
                 title="Open navigation menu"
+                data-js-burger-btn
                 >
                     <span class="burger-btn__line"></span>
                     <span class="burger-btn__line"></span>
@@ -79,5 +79,29 @@
         </div>
     </header>
 
+    <main class="main">
+
+    
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__main">
+                <nav class="footer__menu">
+                    <ul class="footer__menu-list">
+                        <li class="footer__menu-item">
+                            <a href="/" class="footer__menu-link">
+                                
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer__extra">
+                
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

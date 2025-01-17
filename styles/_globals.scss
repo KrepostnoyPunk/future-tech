@@ -4,8 +4,17 @@
     transition-duration: var(--transition-duration);
 }
 
+html{
+    &.is-locked{ // класс который предотвращает возможность скролла когда открыто оверлей меню
+        overflow: hidden;
+    }
+}
+
 body{
     @include fluid-text(18, 14);
+
+    display: flex;
+    flex-direction: column;
 
     font-family: var(--font-base);
     font-weight: 400;
@@ -13,6 +22,10 @@ body{
 
     color: var(--gray-color-50);
     background-color: var(--dark-color);
+}
+
+main{
+    flex-grow: 1; // нужно чтобы этот элемент растянулся максимально по высоте занимая все доступное пространство прижимая тем самым footer к низу вне зависимости от объема содержимого
 }
 
 // классы нужны чтобы соблюсти последовательность заголовков при этом сохраняя необходиый стиль
@@ -82,4 +95,17 @@ a {
 :focus-visible{ // псевдокласс срабатывающий при фокусировке с клавиатуры
     outline: rem(2) dashed var(--light-color);
     outline-offset: rem(4); // отступ(смещение) для обводки
+}
+
+a, button{
+    &[aria-label]{ // селектор по атрибуту aria-label
+        position: relative;
+
+        &::before{ // элемент который увеличивает область нажатия родительского элемента
+            @include abs-center;
+            @include square(rem(44));
+
+            content: '';
+        }
+    }
 }
