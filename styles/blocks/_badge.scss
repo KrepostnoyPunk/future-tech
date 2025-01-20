@@ -1,0 +1,15 @@
+@use '../tools' as *;
+
+.badge{
+    padding: fluid(4, 2) fluid(12, 10);
+    background: var(--gradient);
+    border: rem(1) solid transparent;
+    color: var(--light-color);
+    font-size: rem(16);
+    border-radius: rem(6);
+
+    @include laptop{
+        font-size: rem(14);
+        border-radius: rem(4);
+    }
+}

@@ -239,6 +239,7 @@ svg * {
   --btn-border-radius: 0.75rem;
   --circle-border-radius: 50%;
   --border: 0.0625rem solid var(--dark-color-15);
+  --gradient: linear-gradient(var(--dark-color-10), var(--dark-color-10)) padding-box, linear-gradient(45deg, var(--dark-color-15) 64%, var(--accent-color) 136%) border-box;
   --box-shadow: ;
   --btn-padding: ;
   --input-padding: ;
@@ -526,7 +527,7 @@ a[aria-label]::before, button[aria-label]::before {
   animation-name: header-scroll;
   animation-fill-mode: both;
   animation-timeline: scroll();
-  animation-range: 6.25rem 12.5rem;
+  animation-range: 1.875rem 12.5rem;
 }
 @keyframes header-scroll {
   100% {
@@ -633,4 +634,172 @@ a[aria-label]::before, button[aria-label]::before {
     max-width: 16.25rem;
     align-self: center;
   }
+}
+
+.badge {
+  padding: clamp(0.125rem, 0.0931372549rem + 0.1307189542vw, 0.25rem) clamp(0.625rem, 0.5931372549rem + 0.1307189542vw, 0.75rem);
+  background: var(--gradient);
+  border: 0.0625rem solid transparent;
+  color: var(--light-color);
+  font-size: 1rem;
+  border-radius: 0.375rem;
+}
+@media (width <= 90.06125rem) {
+  .badge {
+    font-size: 0.875rem;
+    border-radius: 0.25rem;
+  }
+}
+
+.soc1als__list {
+  display: flex;
+  -moz-column-gap: 1.25rem;
+       column-gap: 1.25rem;
+}
+@media (width <= 90.06125rem) {
+  .soc1als__list {
+    -moz-column-gap: 0.875rem;
+         column-gap: 0.875rem;
+  }
+}
+.soc1als__link {
+  color: var(--light-color);
+}
+@media (width <= 47.99875rem) {
+  .soc1als__link {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+.footer {
+  color: var(--dark-color-40);
+}
+.footer__main {
+  padding-block: clamp(2.5rem, 1.862745098rem + 2.614379085vw, 5rem);
+  border-bottom: var(--border);
+}
+.footer__menu {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: start;
+  -moz-column-gap: clamp(1.25rem, 0.2941176471rem + 3.9215686275vw, 5rem);
+       column-gap: clamp(1.25rem, 0.2941176471rem + 3.9215686275vw, 5rem);
+}
+@media (width <= 63.99875rem) {
+  .footer__menu {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 2.5rem;
+  }
+}
+@media (width <= 63.99875rem) and (width <= 47.99875rem) {
+  .footer__menu {
+    row-gap: 1.25rem;
+  }
+}
+.footer__menu-column {
+  display: grid;
+  row-gap: clamp(1rem, 0.681372549rem + 1.3071895425vw, 2.25rem);
+}
+@media (width <= 63.99875rem) {
+  .footer__menu-column:last-child {
+    grid-column: -1/1;
+  }
+  .footer__menu-column:last-child .footer__menu-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+}
+.footer__menu-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: clamp(0.5rem, 0.3406862745rem + 0.6535947712vw, 1.125rem);
+}
+.footer__menu-item {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
+}
+.footer__extra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 2.5rem;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+}
+@media (width <= 90.06125rem) {
+  .footer__extra {
+    padding-block: 1.5rem;
+  }
+}
+@media (width <= 47.99875rem) {
+  .footer__extra {
+    flex-direction: column;
+    row-gap: 1.25rem;
+  }
+}
+.footer__extra-menu-list {
+  display: flex;
+}
+.footer__extra-menu-item:not(:last-child)::after {
+  content: "|";
+  margin-inline: 0.6875rem;
+}
+@media (width <= 90.06125rem) {
+  .footer__extra-menu-item:not(:last-child)::after {
+    margin-inline: 0.5rem;
+  }
+}
+@media (width <= 47.99875rem) {
+  .footer__extra-soc1als {
+    order: -1;
+  }
+}
+
+.metrics__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.metrics__item {
+  display: flex;
+  flex-direction: column-reverse;
+  row-gap: 0.625rem;
+  padding: 3.125rem;
+}
+.metrics__item:first-child {
+  padding-left: 0;
+}
+.metrics__item:not(:last-child) {
+  border-right: var(--border);
+}
+
+.hero__main {
+  display: grid;
+  grid-template-columns: 60% auto;
+  grid-template-areas: "body resources-preview" "metrics resources-preview";
+}
+.hero__body {
+  grid-area: body;
+  padding: 9.375rem 3.125rem 6.25rem 0;
+}
+.hero__subtitle {
+  font-size: clamp(1.125rem, 0.9338235294rem + 0.7843137255vw, 1.875rem);
+  font-family: var(--font-accent);
+  font-weight: 500;
+  color: var(--dark-color-40);
+}
+.hero__subtitle:not(:last-child) {
+  margin-bottom: 1.875rem;
+}
+.hero__title:not(:last-child) {
+  margin-bottom: 1.25rem;
+}
+.hero__metrics {
+  grid-area: metrics;
+}
+.hero__resources-preview {
+  grid-area: resources-preview;
 }/*# sourceMappingURL=main.css.map */

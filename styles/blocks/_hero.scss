@@ -1,0 +1,43 @@
+@use '../tools' as *;
+
+.hero{
+    &__main{
+        display: grid;
+        grid-template-columns: 60% auto; // (ширина элемена + горизонтальный отступа вправо)/ширина контейнера*100
+        grid-template-areas: 
+            "body resources-preview"
+            "metrics resources-preview"
+        ;
+    }
+
+    &__body{
+        grid-area: body;
+        padding: rem(150) rem(50) rem(100) 0;
+    }
+
+    &__subtitle{
+        @include fluid-text(30, 18);
+
+        font-family: var(--font-accent);
+        font-weight: 500;
+        color: var(--dark-color-40);
+
+        &:not(:last-child){
+            margin-bottom: rem(30);
+        }
+    }
+
+    &__title{
+        &:not(:last-child){
+            margin-bottom: rem(20);
+        }
+    }
+
+    &__metrics{
+        grid-area: metrics;
+    }
+
+    &__resources-preview{
+        grid-area: resources-preview;
+    }
+}
