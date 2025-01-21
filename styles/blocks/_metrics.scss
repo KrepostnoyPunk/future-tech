@@ -20,4 +20,12 @@
             border-right: var(--border);
         }
     }
+
+    &__data{
+        font-weight: 600;
+    }
+
+    &__sign{
+        color: var(--accent-color);
+    }
 }

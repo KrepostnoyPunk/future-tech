@@ -33,6 +33,7 @@
 
     // border-bottom
     --border: #{rem(1)} solid var(--dark-color-15);
+    --border-thick: #{rem(2)} solid var(--dark-color-40);
 
     // gradient
     --gradient: linear-gradient(var(--dark-color-10), var(--dark-color-10)) padding-box, linear-gradient(45deg, var(--dark-color-15) 64%, var(--accent-color) 136%) border-box; // 1 значение указывает заливку элемента, 2 градиент рамки

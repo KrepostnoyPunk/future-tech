@@ -1,1 +1,22 @@
 @use '../tools' as *;
+
+.team{
+    --memberImgSize: #{rem(60)}; // для более гибкого переопределенияв дальнейшем
+
+    display: flex;
+    padding: rem(10);
+    background-color: var(--dark-color-10);
+    border-radius: rem(100);
+    border: var(--border);
+
+    &__member{
+        width: var(--memberImgSize);
+        background-color: var(--dark-color-15);
+        border-radius: var(--circle-border-radius);
+        border: var(--border-thick);
+
+        &:not(:first-child){
+            margin-left: calc(var(--memberImgSize) / 4 * -1); // размер элемента группы / количество элементов группы * -1 потому что без первого
+        }
+    }
+}
