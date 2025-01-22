@@ -2,17 +2,28 @@
 
 .hero{
     &__main{
-        display: grid;
-        grid-template-columns: 60% auto; // (ширина элемена + горизонтальный отступа вправо)/ширина контейнера*100
-        grid-template-areas: 
-            "body resources-preview"
-            "metrics resources-preview"
-        ;
+        @include tablet-above{ // использование миксина позволяет избежать ненужных обнулений в медиазапросе
+            display: grid;
+            grid-template-columns: 60% auto; // (ширина элемена + горизонтальный отступа вправо)/ширина контейнера*100
+            grid-template-areas: 
+                "body resources-preview"
+                "metrics resources-preview"
+            ;
+        }
     }
 
     &__body{
         grid-area: body;
         padding: rem(150) rem(50) rem(100) 0;
+
+        @include laptop{
+            padding: rem(100) rem(40);
+            padding-left: 0;
+        }
+
+        @include tablet{
+            padding: rem(40) 0;
+        }
     }
 
     &__subtitle{
@@ -24,18 +35,44 @@
 
         &:not(:last-child){
             margin-bottom: rem(30);
+
+            @include laptop{
+                margin-bottom: rem(20);
+            }
+
+            @include tablet{
+                margin-bottom: rem(14);
+            }
         }
     }
 
     &__title{
         &:not(:last-child){
             margin-bottom: rem(20);
+
+            @include laptop{
+                margin-bottom: rem(14);
+            }
+
+            @include mobile{
+                margin-bottom: rem(10);
+            }
         }
     }
 
     &__metrics{
         grid-area: metrics;
-        border-top: var(--border);
+        
+        @include tablet-above{
+            border-top: var(--border);
+        }
+
+        @include tablet{
+            &::before{
+                width: 100vw;
+                right: calc(var(--container-padding-x) * -1); // растягивание разделительной линии на 100%
+            }
+        }
     }
 
     &__resources-preview{
@@ -43,14 +80,33 @@
         padding-left: rem(80);
         padding-bottom: rem(80);
         background: url('../../assets/images/hero_1-bg.png') 0 0/cover no-repeat;
+
+        @include laptop{
+            padding-left: rem(50);
+            padding-bottom: rem(50);
+        }
+
+        @include tablet{
+            padding: rem(100) rem(40) rem(40);
+            width: 100vw;
+            margin-left: calc(var(--container-padding-x) * -1);
+            background-image: url('../../assets/images/hero_1-bg--tablet.png');
+            background-size: contain;
+        }
     }
 
     &__advantages{
         border-block: var(--border);
 
         &-list{
+           @include tablet-above{
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+           }
+
+        @include tablet{
+            grid-template-columns: repeat(1, 1fr);
+        }
         }
 
         &-item{
@@ -58,13 +114,28 @@
 
             padding-block: rem(50);
 
-            &:not(:first-child){
-                padding-left: var(--paddingX);
+            @include laptop{
+                padding-block: rem(40);
+                --paddingX: #{rem(50)};
             }
 
-            &:not(:last-child){
-                padding-right: var(--paddingX);
-                border-right: var(--border);
+            @include tablet-above{
+                &:not(:first-child){
+                    padding-left: var(--paddingX);
+                }
+    
+                &:not(:last-child){
+                    padding-right: var(--paddingX);
+                    border-right: var(--border);
+                }
+            }
+
+            @include tablet{
+                padding-block: rem(30);
+
+                &:not(:last-child){
+                    border-bottom: var(--border);
+                }
             }
         }
     }

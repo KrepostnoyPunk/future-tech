@@ -1,0 +1,23 @@
+@use '../tools' as *;
+
+.card{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 1rem;
+
+    &__grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: rem(30);
+    }
+
+    &__preview{
+        padding-right: rem(80);
+        border-right: var(--border);
+    }
+
+    &__body{
+        padding-left: rem(80);
+    }
+}

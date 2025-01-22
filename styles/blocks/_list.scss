@@ -1,0 +1,13 @@
+@use '../tools' as *;
+
+.list{
+
+    &__item{
+        padding-block: rem(80);
+        
+
+        &:not(:last-child){
+            border-bottom: var(--border);
+        }
+    }
+}

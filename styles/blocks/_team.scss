@@ -9,6 +9,11 @@
     border-radius: rem(100);
     border: var(--border);
 
+    @include laptop{
+        padding: rem(8);
+        --memberImgSize: #{rem(50)};
+    }
+
     &__member{
         width: var(--memberImgSize);
         background-color: var(--dark-color-15);

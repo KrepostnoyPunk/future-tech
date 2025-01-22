@@ -7,8 +7,22 @@
     align-items: start;
     justify-content: end;
 
+    @include laptop{
+       row-gap: rem(20);
+    }
+
     &__body{
         display: grid;
         row-gap: rem(14);
+
+        @include laptop{
+            row-gap: rem(6);
+         }
+    }
+
+    &__btn{
+        @include mobile-s{
+            width: 100%;
+        }
     }
 }

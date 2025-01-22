@@ -2,7 +2,7 @@
 
 // функция для расчета адаптирующегося размера текста
 @function fluid($max: 48, $min: 16) {
-  $maxViewportWidth: 1920;
+  $maxViewportWidth: 1600;
   $minViewportWidth: 390;
 
   $maxSize: math.div($max, 16);

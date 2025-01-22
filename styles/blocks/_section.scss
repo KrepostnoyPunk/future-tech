@@ -1,0 +1,26 @@
+@use '../tools' as *;
+
+.section{
+    &__header{
+        background-color: var(--dark-color-15);
+        padding-block: fluid(120, 40);
+
+        &-info{
+            display: grid;
+            row-gap: rem(16);
+            align-items: start;
+
+            @include laptop{
+                row-gap: rem(10);
+            }
+        }
+
+        &-subtitle{
+            justify-self: start;
+        }
+    }
+
+    &__body{
+        border-block: var(--border);
+    }
+}

@@ -1,0 +1,7 @@
+@use '../tools' as *;
+
+.cell{
+    background-color: var(--dark-color-10);
+    padding: rem(40);
+    border-radius: rem(12);
+}
