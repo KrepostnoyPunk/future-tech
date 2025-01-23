@@ -2,6 +2,6 @@
 
 .cell{
     background-color: var(--dark-color-10);
-    padding: rem(40);
-    border-radius: rem(12);
+    padding: fluid(40, 24);
+    border-radius: fluid(12, 10);
 }

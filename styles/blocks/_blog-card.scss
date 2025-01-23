@@ -1,0 +1,23 @@
+@use '../tools' as *;
+
+.blog-card{
+    display: grid;
+    grid-template-columns: 27% 1fr auto;
+    column-gap: fluid(50, 28);
+    align-items: center;
+    padding-block: fluid(80, 40);
+
+    &__body{
+        display: grid;
+        row-gap: fluid(30, 20);
+    }
+
+    &__date{
+        color: var(--gray-color-60);
+    }
+
+    &__info{
+        display: grid;
+        row-gap: fluid(10, 4);
+    }
+}

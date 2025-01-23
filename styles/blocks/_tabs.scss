@@ -1,0 +1,47 @@
+@use '../tools' as *;
+
+
+.tabs{
+    &__header{
+        padding-block: fluid(50, 20);
+        border-bottom: var(--border);
+    }
+
+    &__btns{
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        column-gap: fluid(20, 14);
+    }
+
+    &__btn{
+        @include reset-btn;
+
+        padding: fluid(30, 18) rem(10);
+        border: var(--border);
+        color: var(--gray-color-60);
+        border-radius: rem(8);
+        font-size: rem(18);
+
+        @include laptop{
+            font-size: rem(14);
+        }
+
+        &.is-active{
+            background-color: var(--dark-color-19);
+            color: var(--light-color);
+            font-weight: 500;
+            pointer-events: none;
+        }
+
+        @include hover{
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+    }
+
+    &__tab{ // если у раздела нет активного класса, то его не будет видно
+        &:not(.is-active){
+            display: none;
+        }
+    }
+}

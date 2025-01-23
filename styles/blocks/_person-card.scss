@@ -1,0 +1,35 @@
+@use '../tools' as *;
+
+.person-card{
+    display: flex;
+    align-items: center;
+    column-gap: fluid(16, 8);
+
+    &__info{
+        display: grid;
+        
+        @include laptop-above{
+            row-gap: rem(2);
+        }
+    }
+
+    &__name{
+        font-size: rem(20);
+        color: var(--light-color);
+        font-weight: 600;
+
+        @include laptop{
+            font-size: rem(18);
+        }
+    }
+
+    &__img{
+        border-radius: 50%;
+        background-color: var(--dark-color-15);
+        width: rem(80);
+
+        @include laptop{
+            width: rem(60);
+        }
+    }
+}
