@@ -1201,11 +1201,22 @@ a[aria-label]::before, button[aria-label]::before {
   padding-block: clamp(1.25rem, 0.645661157rem + 2.479338843vw, 3.125rem);
   border-bottom: var(--border);
 }
+@media (width <= 63.99875rem) {
+  .tabs__header {
+    overflow-x: auto;
+  }
+}
 .tabs__btns {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   -moz-column-gap: clamp(0.875rem, 0.7541322314rem + 0.4958677686vw, 1.25rem);
        column-gap: clamp(0.875rem, 0.7541322314rem + 0.4958677686vw, 1.25rem);
+}
+@media (width <= 63.99875rem) {
+  .tabs__btns {
+    width: -moz-max-content;
+    width: max-content;
+  }
 }
 .tabs__btn {
   background-color: transparent;
@@ -1313,6 +1324,20 @@ a[aria-label]::before, button[aria-label]::before {
     font-size: 0.875rem;
   }
 }
+.blog-actions__btn.is-active svg * {
+  fill: var(--red-color);
+  stroke: var(--red-color);
+}
+@media (any-hover: none) {
+  .blog-actions__btn:active {
+    opacity: 0.8;
+  }
+}
+@media (any-hover: hover) {
+  .blog-actions__btn:hover {
+    opacity: 0.8;
+  }
+}
 .blog-actions__icon-wrapper {
   --size: 1.5rem;
   width: var(--size);
@@ -1328,18 +1353,37 @@ a[aria-label]::before, button[aria-label]::before {
   width: 100%;
   height: 100%;
 }
+.blog-actions__icon-wrapper svg * {
+  fill: transparent;
+}
 
 .blog-card {
   display: grid;
   grid-template-columns: 27% 1fr auto;
   -moz-column-gap: clamp(1.75rem, 1.3068181818rem + 1.8181818182vw, 3.125rem);
        column-gap: clamp(1.75rem, 1.3068181818rem + 1.8181818182vw, 3.125rem);
-  align-items: center;
   padding-block: clamp(2.5rem, 1.694214876rem + 3.305785124vw, 5rem);
+}
+@media (width <= 63.99875rem) {
+  .blog-card {
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "author link" "body body";
+    row-gap: 1.875rem;
+  }
+}
+@media (width <= 63.99875rem) {
+  .blog-card__author {
+    grid-area: author;
+  }
 }
 .blog-card__body {
   display: grid;
   row-gap: clamp(1.25rem, 1.048553719rem + 0.826446281vw, 1.875rem);
+}
+@media (width <= 63.99875rem) {
+  .blog-card__body {
+    grid-area: body;
+  }
 }
 .blog-card__date {
   color: var(--gray-color-60);
@@ -1347,4 +1391,12 @@ a[aria-label]::before, button[aria-label]::before {
 .blog-card__info {
   display: grid;
   row-gap: clamp(0.25rem, 0.1291322314rem + 0.4958677686vw, 0.625rem);
+}
+.blog-card__link {
+  align-self: center;
+}
+@media (width <= 63.99875rem) {
+  .blog-card__link {
+    grid-area: link;
+  }
 }/*# sourceMappingURL=main.css.map */

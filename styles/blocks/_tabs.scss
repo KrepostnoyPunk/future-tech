@@ -5,12 +5,20 @@
     &__header{
         padding-block: fluid(50, 20);
         border-bottom: var(--border);
+
+        @include tablet{
+            overflow-x: auto;
+        }
     }
 
     &__btns{
         display: grid;
         grid-template-columns: repeat(6, 1fr);
         column-gap: fluid(20, 14);
+
+        @include tablet{
+            width: max-content; // содержимое списка не будет уменшаться, а будет увеличивать область скролла что в данном случае ок
+        }
     }
 
     &__btn{
