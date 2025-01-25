@@ -1,0 +1,12 @@
+@use '../tools' as *;
+
+.download-info{
+    display: inline-grid; // чтобы не растягивался
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    column-gap: rem(50);
+
+    @include laptop{
+        column-gap: rem(30);
+    }
+}

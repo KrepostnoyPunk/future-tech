@@ -23,12 +23,30 @@ class Tabs{
         this.state = { // объект хранящий индекс текущей активной кнопки табов
             activeIndex: [...this.tabBtnEls].findIndex((btnEl) => btnEl.classList.contains(this.stateClasses.isActive))
         }
-        this.limitTabsIndex = this.tabBtnEls.length - 1; // лимит табов
         this.bindEvents()
     }
 
+    updateUI() {
+        const {activeIndex} = this.state;
+
+        this.tabBtnEls.forEach((btnEl, index) => {
+            const isActive = index === activeIndex;
+
+            btnEl.classList.toggle(this.stateClasses.isActive, isActive) // предыдущая активная кнопка перестает быть таковой при нажатии на другую
+            btnEl.setAttribute(this.stateAttributes.ariaSelected, isActive)
+            btnEl.setAttribute(this.stateAttributes.tabIndex, isActive ? '0' : '-1')
+        })
+
+        this.tabEls.forEach((tabEl, index) => {
+            const isActive = index === activeIndex;
+
+            tabEl.classList.toggle(this.stateClasses.isActive, isActive)
+        })
+    }
+
     onBtnClick(btnIndex) {
-        
+        this.state.activeIndex = btnIndex;
+        this.updateUI()
     }
 
     bindEvents() {
@@ -47,7 +65,7 @@ class TabsCollection{
 
     init () {   
         document.querySelectorAll(rootSelector).forEach((element) => {
-            new Tabs(element) // передаем конкретный корневой элемент из группы табов на каждой итерации
+            new Tabs(element) // передаем конкретный корневой элемент из группы табов на каждой итерации и создаем экземпляр запуская тем самым функцию конструктор которая заполнит переменные внутри класса Tabs
         })
     }
 }

@@ -14,6 +14,17 @@
         --memberImgSize: #{rem(50)};
     }
 
+    &--dark-bg{
+        --memberImgSize: #{rem(50)}; 
+        background-color: var(--dark-color);
+        border-radius: rem(12);
+        border: none;
+
+        @include laptop{
+            --memberImgSize: #{rem(40)}; 
+        }
+    }
+
     &__member{
         width: var(--memberImgSize);
         background-color: var(--dark-color-15);

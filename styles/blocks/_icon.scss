@@ -26,4 +26,16 @@
             }
         }
     }
+
+    &--yellow-eye{
+        &::after{
+            --size: #{rem(24)};
+            
+            background-image: url('../../assets/icons/yellow-eye.svg');
+
+            @include laptop{
+                --size: #{rem(20)};
+            }
+        }
+    }
 }
