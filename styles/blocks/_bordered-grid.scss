@@ -1,0 +1,53 @@
+@use '../tools' as *;
+
+.bordered-grid{
+    --cols: 1;
+    --paddingY: #{fluid(80, 40)};
+
+    display: grid;
+    grid-template-columns: repeat(var(--cols), 1fr);
+
+    &--2cols{
+        --cols: 2;
+    }
+
+    &--3cols{
+        --cols: 3;
+
+        @include tablet-above{
+            .bordered-grid__item{
+                // отступы для 1 и 2 колонок
+                &:nth-child(3n - 2),
+                &:nth-child(3n - 1){
+                    padding-right: fluid(50, 40);
+                    border-right: var(--border);
+                }
+    
+                // горизонтальные разделители по низам для элементов 2 колонки т.к. она центр
+                &:nth-child(3n - 1){
+                    @include full-vw-centered(bottom);
+                }
+    
+                // отступы для 2 и 3 колонок
+                &:nth-child(3n - 1),
+                &:nth-child(3n){
+                    padding-left: fluid(50, 40);
+                }
+            }
+        }
+
+        @include tablet{
+            --cols: 1;
+
+            .bordered-grid__item{
+                &:not(:last-child){
+                    border-bottom: var(--border);
+                }
+            }
+        }
+    }
+
+    &__item{
+        padding-block: var(--paddingY);
+    }
+}

@@ -1,6 +1,8 @@
 @use '../tools' as *;
 
 .person-card{
+    --size: #{rem(80)};
+
     display: flex;
     align-items: center;
     column-gap: fluid(16, 8);
@@ -26,10 +28,10 @@
     &__img{
         border-radius: 50%;
         background-color: var(--dark-color-15);
-        width: rem(80);
+        width: var(--size);
 
         @include laptop{
-            width: rem(60);
+            --size: #{rem(60)};
         }
     }
 }

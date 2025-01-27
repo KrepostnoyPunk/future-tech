@@ -1,0 +1,31 @@
+@use '../tools' as *;
+
+.rating{
+    display: inline-flex;
+    column-gap: rem(7);
+    padding: rem(10) rem(16);
+    background-color: var(--dark-color);
+    border: var(--border);
+    border-radius: rem(100);
+
+    @include laptop{
+        padding: rem(8) rem(12);
+        column-gap: rem(4);
+    }
+
+    &__star{
+        --size: #{rem(24)};
+
+        @include square(var(--size));
+
+        background: url('../../assets/icons/star.svg') center/contain no-repeat;
+
+        @include laptop{
+            --size: #{rem(20)};
+        }
+
+        &.is-active{
+            background-image: url('../../assets/icons/star--active.svg');
+        }
+    }
+}

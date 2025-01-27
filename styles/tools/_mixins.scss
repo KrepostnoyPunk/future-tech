@@ -62,6 +62,21 @@
     width: $size;
     height: $size;
   }
+
+  // горизонтальные линии ограничители на всю ширину страницы в виде миксина
+@mixin full-vw-centered($property: top){
+  position: relative;
+
+  &::before{
+    @include abs-x;
+
+    content: '';
+    #{$property}: 0; // top: 0
+    width: 100vw;
+    height: rem(1);
+    background-color: var(--dark-color-15);
+  }
+}
   
   // для CEO скрытия
   @mixin visually-hidden {
