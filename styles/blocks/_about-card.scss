@@ -1,5 +1,17 @@
 @use '../tools' as *;
 
 .about-card{
-    
+    display: flex;
+    flex-direction: column;
+    row-gap: fluid(20, 10);
+    border: var(--border);
+    padding: fluid(40, 24);
+
+    &__title{
+        display: flex;
+        align-items: center;
+        font-size: fluid(22, 16);
+        font-family: var(--font-main);
+        font-weight: 600;
+    }
 }

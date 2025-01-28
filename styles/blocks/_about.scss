@@ -24,12 +24,20 @@
 
         @include mobile{
             row-gap: rem(4);
+            grid-template-areas: 
+            "icon subtitle"
+            "title title"
+            "description description";
         }
     }
 
     &__icon{
         grid-area: icon;
         width: fluid(150, 60);
+
+        @include mobile{
+            grid-area: icon;
+        }
     }
 
     &__info{
@@ -39,9 +47,43 @@
         @include laptop{
             row-gap: rem(10);
         }
+
+        @include mobile{
+            display: contents;
+        }
     }
 
     &__subtitle{
         justify-self: start;
+        
+        @include mobile{
+            grid-area: subtitle;
+        }
+    }
+
+    &__title{
+        @include mobile{
+            grid-area: title;
+            margin-top: rem(20);
+        }
+    }
+
+    &__description{
+        @include mobile{
+            grid-area: description;
+        }
+    }
+
+    &__list{
+        display: grid;
+        gap: fluid(20, 10);
+        padding: fluid(20, 10);
+        border: var(--border);
+        border-radius: fluid(12, 10);
+        background-color: var(--dark-color);
+
+        @include tablet-above{
+            grid-template-columns: repeat(3, 1fr);
+        }
     }
 }

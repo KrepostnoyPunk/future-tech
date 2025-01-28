@@ -68,3 +68,35 @@
         }
     }
 }
+
+// circle-icon
+.circle-icon{
+    --circleSize: #{rem(52)};
+    --circleMarginLeft: #{rem(20)};
+
+    position: relative;
+    padding-right: calc(var(--circleSize) + var(--circleMarginLeft));
+    min-height: var(--circleSize);
+
+    @include laptop{
+        --circleSize: #{rem(44)};
+        --circleMarginLeft: #{rem(14)};
+
+        row-gap: rem(2);
+        }
+
+        @include mobile{
+        --circleSize: #{rem(40)};
+        }
+
+    &::after{
+        @include square(var(--circleSize));
+
+        @include abs-y;
+
+        right: 0;
+        content: '';
+        background: url('../../assets/icons/arrow-up-right--black.svg') center no-repeat var(--accent-color);
+        border-radius: var(--circle-border-radius);
+    }
+}
