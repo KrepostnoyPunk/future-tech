@@ -8,13 +8,35 @@
     grid-template-columns: repeat(var(--cols), 1fr);
 
     &--2cols{
-        --cols: 2;
+
+        @include tablet-above{
+            --cols: 2;
+
+            .bordered-grid__item{
+                // отступы для нечетных колонок
+                &:nth-child(odd){
+                    @include mobile-above{
+                        padding-right: fluid(80, 40);
+                    }
+
+                    border-right: var(--border);
+                }
+    
+                // отступы для четных колонок
+                &:nth-child(even){
+                    padding-left: fluid(80, 40);
+
+                    @include full-vw-centered(bottom, auto, 100%, 50%);
+                }
+            }
+        }
     }
 
     &--3cols{
-        --cols: 3;
 
         @include tablet-above{
+            --cols: 3;
+
             .bordered-grid__item{
                 // отступы для 1 и 2 колонок
                 &:nth-child(3n - 2),
@@ -35,14 +57,13 @@
                 }
             }
         }
+    }
 
-        @include tablet{
-            --cols: 1;
+    @include tablet{
 
-            .bordered-grid__item{
-                &:not(:last-child){
-                    border-bottom: var(--border);
-                }
+        .bordered-grid__item{
+            &:not(:last-child){
+                border-bottom: var(--border);
             }
         }
     }

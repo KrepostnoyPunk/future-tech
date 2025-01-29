@@ -1,0 +1,11 @@
+@use '../tools' as *;
+
+.news{
+    padding-block: fluid(80, 40);
+
+    &__list{
+        display: grid;
+        gap: rem(30);
+        grid-template-columns: repeat(auto-fit, minmax(rem(350), 1fr)); // автоматический перенос элементов на новую строку при перереполнении контейнера
+    }
+}

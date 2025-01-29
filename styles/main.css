@@ -1568,13 +1568,40 @@ a[aria-label]::before, button[aria-label]::before {
   display: grid;
   grid-template-columns: repeat(var(--cols), 1fr);
 }
-.bordered-grid--2cols {
-  --cols: 2;
+@media (width > 63.99875rem) {
+  .bordered-grid--2cols {
+    --cols: 2;
+  }
+  .bordered-grid--2cols .bordered-grid__item:nth-child(odd) {
+    border-right: var(--border);
+  }
 }
-.bordered-grid--3cols {
-  --cols: 3;
+@media (width > 63.99875rem) and (width > 47.99875rem) {
+  .bordered-grid--2cols .bordered-grid__item:nth-child(odd) {
+    padding-right: clamp(2.5rem, 1.694214876rem + 3.305785124vw, 5rem);
+  }
 }
 @media (width > 63.99875rem) {
+  .bordered-grid--2cols .bordered-grid__item:nth-child(even) {
+    padding-left: clamp(2.5rem, 1.694214876rem + 3.305785124vw, 5rem);
+    position: relative;
+  }
+  .bordered-grid--2cols .bordered-grid__item:nth-child(even)::before {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: auto;
+    right: 100%;
+    translate: 50%;
+    width: 100vw;
+    height: 0.0625rem;
+    background-color: var(--dark-color-15);
+  }
+}
+@media (width > 63.99875rem) {
+  .bordered-grid--3cols {
+    --cols: 3;
+  }
   .bordered-grid--3cols .bordered-grid__item:nth-child(3n-2), .bordered-grid--3cols .bordered-grid__item:nth-child(3n-1) {
     padding-right: clamp(2.5rem, 2.298553719rem + 0.826446281vw, 3.125rem);
     border-right: var(--border);
@@ -1584,10 +1611,11 @@ a[aria-label]::before, button[aria-label]::before {
   }
   .bordered-grid--3cols .bordered-grid__item:nth-child(3n-1)::before {
     position: absolute;
-    left: 50%;
-    translate: -50%;
     content: "";
     bottom: 0;
+    left: 50%;
+    right: auto;
+    translate: -50%;
     width: 100vw;
     height: 0.0625rem;
     background-color: var(--dark-color-15);
@@ -1597,10 +1625,7 @@ a[aria-label]::before, button[aria-label]::before {
   }
 }
 @media (width <= 63.99875rem) {
-  .bordered-grid--3cols {
-    --cols: 1;
-  }
-  .bordered-grid--3cols .bordered-grid__item:not(:last-child) {
+  .bordered-grid .bordered-grid__item:not(:last-child) {
     border-bottom: var(--border);
   }
 }
@@ -1703,4 +1728,157 @@ a[aria-label]::before, button[aria-label]::before {
   .about__list {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+.post-info__list {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  -moz-column-gap: clamp(1.25rem, 0.645661157rem + 2.479338843vw, 3.125rem);
+       column-gap: clamp(1.25rem, 0.645661157rem + 2.479338843vw, 3.125rem);
+}
+.post-info__value {
+  color: var(--light-color);
+  font-size: clamp(0.875rem, 0.7944214876rem + 0.3305785124vw, 1.125rem);
+}
+
+.news-card {
+  display: grid;
+  row-gap: 1.25rem;
+  height: 100%;
+}
+@media (width <= 90.06125rem) {
+  .news-card {
+    row-gap: 1rem;
+  }
+}
+.news-card:has(.post-info) {
+  padding-block: clamp(2.5rem, 1.694214876rem + 3.305785124vw, 5rem);
+  align-items: center;
+  -moz-column-gap: clamp(2.5rem, 1.694214876rem + 3.305785124vw, 5rem);
+       column-gap: clamp(2.5rem, 1.694214876rem + 3.305785124vw, 5rem);
+}
+@media (width > 63.99875rem) {
+  .news-card:has(.post-info) {
+    grid-template-columns: 32% 1fr;
+    grid-template-areas: "img info" "img info" "img info";
+  }
+}
+@media (width > 63.99875rem) {
+  .news-card:has(.post-info) .news-card__img {
+    grid-area: img;
+  }
+}
+.news-card:has(.post-info) .news-card__title {
+  font-size: clamp(1.25rem, 1.0082644628rem + 0.9917355372vw, 2rem);
+  font-weight: 600;
+  font-family: var(--font-main);
+}
+.news-card__img {
+  border-radius: 0.75rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+@media (width <= 90.06125rem) {
+  .news-card__img {
+    border-radius: 0.625rem;
+  }
+}
+.news-card__body {
+  display: grid;
+  row-gap: 0.625rem;
+}
+@media (width <= 90.06125rem) {
+  .news-card__body {
+    row-gap: 0.25rem;
+  }
+}
+.news-card__controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+}
+@media (width > 63.99875rem) {
+  .news-card__controls {
+    padding-block: 0.625rem;
+  }
+}
+
+.news {
+  padding-block: clamp(2.5rem, 1.694214876rem + 3.305785124vw, 5rem);
+}
+.news__list {
+  display: grid;
+  gap: 1.875rem;
+  grid-template-columns: repeat(auto-fit, minmax(21.875rem, 1fr));
+}
+
+.hero-alt__header {
+  padding-top: clamp(2.5rem, 0.6869834711rem + 7.4380165289vw, 8.125rem);
+  padding-bottom: clamp(2.5rem, -0.1590909091rem + 10.9090909091vw, 10.75rem);
+  border-bottom: var(--border);
+}
+.hero-alt__header-inner {
+  display: grid;
+  align-items: center;
+  gap: clamp(0.875rem, 0.7541322314rem + 0.4958677686vw, 1.25rem) clamp(3.75rem, 3.347107438rem + 1.652892562vw, 5rem);
+}
+@media (width > 63.99875rem) {
+  .hero-alt__header-inner {
+    grid-template-columns: auto 1fr;
+  }
+}
+.hero-alt__title {
+  grid-column: -1/1;
+}
+@media (width > 63.99875rem) {
+  .hero-alt__title-hidden-part {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    border: 0 !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+    -webkit-clip-path: inset(100%) !important;
+            clip-path: inset(100%) !important;
+    clip: rect(0 0 0 0) !important;
+    overflow: hidden !important;
+  }
+}
+
+.video-player {
+  position: relative;
+}
+.video-player__video {
+  border-radius: clamp(0.625rem, 0.5847107438rem + 0.1652892562vw, 0.75rem);
+  height: clamp(13.125rem, 9.055785124rem + 16.694214876vw, 25.75rem);
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.video-player__panel {
+  position: absolute;
+  inset: 0;
+  padding: 1.875rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+}
+.video-player__btn {
+  border-radius: 50%;
+}
+
+.video-card {
+  display: grid;
+  row-gap: clamp(1.25rem, 1.048553719rem + 0.826446281vw, 1.875rem);
+}
+.video-card__info {
+  display: grid;
+  row-gap: clamp(0.25rem, 0.1291322314rem + 0.4958677686vw, 0.625rem);
 }/*# sourceMappingURL=main.css.map */

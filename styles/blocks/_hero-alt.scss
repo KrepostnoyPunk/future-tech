@@ -1,0 +1,30 @@
+@use '../tools' as *;
+
+.hero-alt{
+
+    &__header{
+        padding-top: fluid(130, 40);
+        padding-bottom: fluid(172, 40);
+        border-bottom: var(--border);
+
+        &-inner{
+            display: grid;
+            align-items: center;
+            gap: fluid(20, 14) fluid(80, 60);
+
+            @include tablet-above{
+                grid-template-columns: auto 1fr;
+            }
+        }
+    }
+
+    &__title{
+        grid-column: -1 / 1;
+
+        &-hidden-part{
+            @include tablet-above{
+                @include visually-hidden;
+            }
+        }
+    }
+}

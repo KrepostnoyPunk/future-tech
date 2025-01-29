@@ -64,14 +64,16 @@
   }
 
   // горизонтальные линии ограничители на всю ширину страницы в виде миксина
-@mixin full-vw-centered($property: top){
+@mixin full-vw-centered($property: top, $left: 50%, $right: auto, $translate: -50%){
   position: relative;
 
   &::before{
-    @include abs-x;
-
+    position: absolute;
     content: '';
-    #{$property}: 0; // top: 0
+    #{$property}: 0; //top: 0
+    left: $left;
+    right: $right;
+    translate: $translate;
     width: 100vw;
     height: rem(1);
     background-color: var(--dark-color-15);

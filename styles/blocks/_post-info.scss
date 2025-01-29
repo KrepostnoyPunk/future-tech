@@ -1,0 +1,15 @@
+@use '../tools' as *;
+
+.post-info{
+    &__list{
+        display: flex; // потому что grid растянет на всю ширину а оно не нужно тут
+        align-items: center;
+        justify-content: start;
+        column-gap: fluid(50, 20);
+    }
+
+    &__value{
+        color: var(--light-color);
+        font-size: fluid(18, 14);
+    }
+}

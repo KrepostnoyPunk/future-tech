@@ -1,0 +1,11 @@
+@use '../tools' as *;
+
+.video-card{
+    display: grid;
+    row-gap: fluid(30, 20);
+
+    &__info{
+        display: grid;
+        row-gap: fluid(10, 4);
+    }
+}
