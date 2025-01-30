@@ -1,9 +1,5 @@
 @use 'tools' as *; // позволяет использовать переданные в index.scss функции, миксины и пр.
 
-* {
-    transition-duration: var(--transition-duration);
-}
-
 html{
     &.is-locked{ // класс который предотвращает возможность скролла когда открыто оверлей меню
         overflow: hidden;
@@ -78,6 +74,16 @@ h5, .h5 {
 
 h6, .h6 {
     @include fluid-text(20, 16);
+}
+
+a,
+button,
+label,
+input,
+textarea,
+select,
+svg * {
+  transition-duration: var(--transition-duration);
 }
 
 a {

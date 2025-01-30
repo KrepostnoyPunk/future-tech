@@ -1,0 +1,68 @@
+@use '../tools' as *;
+
+.blog-open{
+    &__banner{
+        --bgImg: url('../../assets/images/banner.jpg');
+
+        display: flex;
+        align-items: end;
+       text-align: center;
+        background: linear-gradient(180deg, rgba(20, 20, 20, 0) 0%, rgba(20, 20, 20, 0.88) 75.52%, #141414 100%), var(--bgImg) center/cover no-repeat;
+        min-height: fluid(600, 281);
+        padding-block: fluid(65, 17);
+
+        @include mobile{
+            --bgImg: url('../../assets/images/banner-mobile.jpg');
+        }
+    }
+
+    &__title{
+        font-size: fluid(64, 28);
+        font-family: var(--font-base);
+        font-weight: 600;
+    }
+
+    &__similar{
+        display: grid;
+
+        @include mobile-above{
+            row-gap: fluid(60, 40);
+        }
+    }
+
+    &__body{
+        border-block: var(--border);
+    }
+
+    &__inner{
+        display: grid;
+
+        @include tablet-above{
+         grid-template-columns: 62% auto;   
+        }
+    }
+
+    &__content{
+        border-right: var(--border);
+    }
+
+    &__intro,
+    &__main,
+    &__actions,
+    &__post-info{
+        padding: fluid(80, 40) rem(80);
+
+        @include laptop{
+            padding-inline: rem(60);
+        }
+    }
+
+    &__intro,
+    &__actions{
+        border-bottom: var(--border);
+    }
+
+    &__actions{
+        padding-block: fluid(50, 20);
+    }
+}

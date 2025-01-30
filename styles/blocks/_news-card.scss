@@ -23,6 +23,8 @@
         }
 
         .news-card__img{
+            height: fluid(427, 213);
+
             @include tablet-above{
                 grid-area: img;
             }
@@ -39,9 +41,11 @@
         border-radius: rem(12);
         object-fit: cover;
         width: 100%;
+        height: rem(222);
 
         @include laptop{
-           border-radius: rem(10);
+            height: rem(185);
+            border-radius: rem(10);
         }
     }
 

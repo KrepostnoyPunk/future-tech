@@ -38,4 +38,16 @@
             }
         }
     }
+
+    &--arrow-gray-down{
+        &::after{
+            --size: #{rem(24)};
+            
+            background-image: url('../../assets/icons/arrow-down-gray.svg');
+
+            @include laptop{
+                --size: #{rem(20)};
+            }
+        }
+    }
 }

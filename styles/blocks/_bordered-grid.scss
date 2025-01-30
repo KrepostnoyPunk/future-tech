@@ -9,7 +9,7 @@
 
     &--2cols{
 
-        @include tablet-above{
+        @include mobile-above{
             --cols: 2;
 
             .bordered-grid__item{
