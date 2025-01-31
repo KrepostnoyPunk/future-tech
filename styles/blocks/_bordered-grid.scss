@@ -37,23 +37,28 @@
         @include tablet-above{
             --cols: 3;
 
+            column-gap: calc(fluid(50, 40) * 2);
+
             .bordered-grid__item{
                 // отступы для 1 и 2 колонок
                 &:nth-child(3n - 2),
                 &:nth-child(3n - 1){
-                    padding-right: fluid(50, 40);
-                    border-right: var(--border);
+                    position: relative;
+
+                    &::after{
+                        position: absolute;
+                        content: '';
+                        top: 0;
+                        left: calc(100% + fluid(50, 40));
+                        width: rem(1);
+                        height: 100%;
+                        background-color: var(--dark-color-15);
+                    }
                 }
     
                 // горизонтальные разделители по низам для элементов 2 колонки т.к. она центр
                 &:nth-child(3n - 1){
-                    @include full-vw-centered(bottom);
-                }
-    
-                // отступы для 2 и 3 колонок
-                &:nth-child(3n - 1),
-                &:nth-child(3n){
-                    padding-left: fluid(50, 40);
+                    @include full-vw-centered();
                 }
             }
         }

@@ -37,7 +37,8 @@
         }
 
         @include hover{
-            opacity: .8;
+            color: var(--accent-color);
+            background-color: var(--dark-color);
         }
     }
 

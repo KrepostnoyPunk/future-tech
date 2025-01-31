@@ -8,6 +8,10 @@
         height: fluid(412, 210);
         width: 100%;
         object-fit: cover;
+
+        &--small{
+            height: fluid(290, 208);
+        }
     }
 
     &__panel{
@@ -33,6 +37,11 @@
         *{
             position: relative;
             z-index: 1;
+        }
+
+        &--centered{
+            justify-content: center;
+            align-items: center;
         }
     }
 

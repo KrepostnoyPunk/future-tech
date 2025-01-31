@@ -1,2 +1,18 @@
 @use '../tools' as *;
 
+.table-of-contents{
+    margin-top: fluid(16, 10);
+    background-color: var(--dark-color-19);
+    border-radius: rem(12);
+    padding: rem(20);
+
+    &__list{
+        display: grid;
+        row-gap: fluid(20, 16);
+    }
+
+    &__item{
+        list-style-type: disc;
+        margin-left: 1em;
+    }
+}

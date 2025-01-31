@@ -2,8 +2,35 @@
 
 .metrics{
     &__list{
+        --cols: 3;
+
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(var(--cols), 1fr);
+
+        &--4cols{
+            --cols: 4;
+
+            text-align: center;
+
+            @include mobile{
+                --cols: 2;
+
+                padding-inline: 0;
+
+                .metrics__item{
+                    border-bottom: var(--border);
+
+                    &:nth-child(odd){
+                        padding-left: 1rem;
+                    }
+
+                    &:nth-child(even){
+                        padding-right: 1rem;
+                        border-right: none;
+                    }
+                }
+            }
+        }
     }
 
     &__item{

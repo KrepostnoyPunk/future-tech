@@ -61,6 +61,7 @@
             background-color: var(--dark-color-19);
             padding: 1rem;
             row-gap: 3rem;
+            transition-duration: var(--transition-duration);
 
             &:not(.is-active){
                 @include hide;

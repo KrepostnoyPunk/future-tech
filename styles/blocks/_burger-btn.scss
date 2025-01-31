@@ -39,6 +39,7 @@
         width: 100%;
         border-radius: rem(1);
         height: rem(2);
+        transition-duration: var(--transition-duration);
 
         &:last-child{
             width: 55%;

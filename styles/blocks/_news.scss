@@ -1,6 +1,8 @@
 @use '../tools' as *;
 
 .news{
+    display: grid;
+    row-gap: fluid(60, 30);
     padding-block: fluid(80, 40);
 
     &__header{
