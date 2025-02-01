@@ -16,6 +16,19 @@
         grid-template-columns: repeat(6, 1fr);
         column-gap: fluid(20, 14);
 
+        &--heading{
+            display: inline-flex;
+            padding: rem(10);
+            column-gap: rem(10);
+            background-color: var(--dark-color);
+            border-radius: rem(12);
+            border: var(--border);
+
+            .tabs__btn{
+                padding: fluid(18, 14) fluid(38, 13);
+            }
+        }
+
         @include tablet{
             width: max-content; // содержимое списка не будет уменшаться, а будет увеличивать область скролла что в данном случае ок
         }

@@ -1,0 +1,29 @@
+@use '../tools' as *;
+
+.report-card{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    height: 100%;
+    row-gap: fluid(30, 20);
+
+    &__img{
+        border-radius: rem(12);
+        object-fit: cover;
+        width: 100%;
+        height: fluid(290, 223);
+    }
+
+    &__info{
+        display: flex;
+        flex-direction: column;
+        row-gap: fluid(14, 10);
+        flex-grow: 1;
+    }
+
+    &__actions{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: fluid(20, 10);
+    }
+}

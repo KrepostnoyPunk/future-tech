@@ -92,14 +92,23 @@
         }
 
         &--3col{
+            grid-template-columns: repeat(3, 1fr);
             gap: fluid(50, 20) fluid(20, 16);
-            
-            @include tablet-above{
-                grid-template-columns: repeat(3, 1fr);
-            }
 
             @include mobile{
                 column-gap: 0;
+            }
+        }
+
+        &--3col-alt{
+            gap: fluid(50, 20) fluid(20, 16);
+
+            @include tablet-above{
+                grid-template-columns: repeat(3,1fr);
+            }
+
+            @include mobile{
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     }
@@ -117,15 +126,35 @@
             grid-template-areas: 
                 "data link"
                 "data link";
-            column-gap: rem(20);
+            gap: fluid(14, 10) rem(20);
         }
 
         &:has(> *:only-child){ // только те cell у которых один единственный дочерний элемент
             justify-content: center;
         }
 
+        &:not(.cell){
+            @include mobile{
+                grid-template: initial; // сброс сетки к первоначальным значениям
+
+                .card__cell-link{
+                    grid-area: initial;
+                }
+            }
+        }
+
+        &.cell{
+            padding: rem(20);
+        }
+
         &--wide{
             grid-column: -1 / 1;
+        }
+
+        &--wide-on-mobile{
+            @include mobile{
+                grid-column: -1 / 1;
+            }
         }
 
         &__img{
@@ -142,6 +171,10 @@
         &-subtitle{ // сброс класса для сохранения семантики
             font: inherit;
             color: inherit;
+        }
+
+        &-description{
+            font-size: rem(14);
         }
 
         &-link{

@@ -6,7 +6,8 @@
         padding-block: fluid(120, 40);
 
         &-inner{
-            &:has(.section__link){
+            &:has(.section__link),
+            &:has(.section__tabs-actions){
                 display: grid;
                 align-items: center;
                 column-gap: 1rem;
@@ -42,5 +43,10 @@
 
     &__link{
         max-width: rem(360);
+    }
+
+    &__link,
+    &__tabs-actions{
+        width: 100%;
     }
 }
