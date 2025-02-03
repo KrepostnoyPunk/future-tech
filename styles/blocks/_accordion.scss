@@ -1,0 +1,11 @@
+@use '../tools' as *;
+
+.accordion{
+    &__sumary{
+        list-style: none;
+
+        &::-webkit-details-marker{
+            display: none;
+        }
+    }
+}

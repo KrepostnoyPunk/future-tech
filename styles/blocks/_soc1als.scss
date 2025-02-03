@@ -10,11 +10,57 @@
         }
     }
 
+    &__item{
+        display: flex;
+    }
+
     &__link{
+        --size: #{rem(24)};
+
+        @include square(var(--size));
+
         color: var(--light-color);
 
-        @include mobile{
-            @include square(rem(20))
+        @include laptop{
+            --size: #{rem(20)};
+        }
+    }
+
+    &--3cols{
+        width: 100%;
+
+        .soc1als{
+            &__list{
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                row-gap: rem(10);
+        
+                @include laptop{
+                    column-gap: rem(10);
+                }
+            }
+
+            &__link{
+                @include flex-center;
+
+                height: rem(60);
+                width: 100%;
+                background-color: var(--dark-color-19);
+                border-radius: rem(6);
+                border: var(--border);
+
+                @include hover{
+                    border-color: var(--accent-color);
+                }
+
+                @include laptop{
+                    height: rem(45);
+                }
+
+                @include mobile{
+                    padding-block: rem(14);
+                }
+            }
         }
     }
 }

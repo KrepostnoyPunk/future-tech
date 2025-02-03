@@ -1,0 +1,70 @@
+@use '../tools' as *;
+
+.field{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: rem(16);
+
+    @include laptop{
+        row-gap: rem(12);
+    }
+
+    &__label{
+        font-size: fluid(18, 16);
+        font-weight: 500;
+        color: var(--light-color);
+    }
+
+    &__input{
+        width: 100%;
+        border: var(--border);
+        border-radius: rem(8);
+        padding-inline: rem(20);
+        height: rem(67);
+        color: var(--light-color);
+        background-color: var(--dark-color-19);
+
+        @include hover{
+            box-shadow: 0 0 0 #{rem(4)} var(--dark-color-19);
+            border-color: var(--accent-color);
+        }
+
+        @include laptop{
+            height: rem(53);
+            padding-inline: rem(16);
+        }
+
+        &::placeholder{
+            color: var(--dark-color-40);
+        }
+    }
+
+    &__required{
+        color: var(--red-color);
+    }
+
+    &__body{
+        display: flex;
+        column-gap: rem(16);
+        width: 100%;
+
+        @include laptop{
+            column-gap: rem(12);
+        }
+    }
+
+    textarea.field__input{
+        resize: vertical;
+        min-height: rem(163);
+        padding-block: rem(20);
+
+        @include laptop{
+            padding-block: rem(16);
+        }
+
+        @include mobile{
+            min-height: rem(127);
+        }
+    }
+}

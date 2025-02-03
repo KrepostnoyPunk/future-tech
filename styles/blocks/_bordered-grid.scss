@@ -36,8 +36,13 @@
 
         @include tablet-above{
             --cols: 3;
+            --itemPaddingX: #{rem(50)};
 
-            column-gap: calc(fluid(50, 40) * 2);
+            column-gap: calc(var(--itemPaddingX) * 2);
+
+            @include laptop{
+                --itemPaddingX: #{rem(40)};
+            }
 
             .bordered-grid__item{
                 // отступы для 1 и 2 колонок
@@ -49,7 +54,7 @@
                         position: absolute;
                         content: '';
                         top: 0;
-                        left: calc(100% + fluid(50, 40));
+                        left: calc(100% + var(--itemPaddingX));
                         width: rem(1);
                         height: 100%;
                         background-color: var(--dark-color-15);
@@ -58,9 +63,50 @@
     
                 // горизонтальные разделители по низам для элементов 2 колонки т.к. она центр
                 &:nth-child(3n - 1){
-                    @include full-vw-centered();
+                    @include full-vw-centered(bottom);
                 }
             }
+        }
+    }
+
+    &--4cols{
+
+        @include tablet-above{
+            --cols: 4;
+            --itemPaddingX: #{rem(50)};
+
+            column-gap: calc(var(--itemPaddingX) * 2);
+
+            @include laptop{
+                --itemPaddingX: #{rem(30)};
+            }
+
+            .bordered-grid__item{
+                // отступы и границы для 1, 2, 3 колонок
+                &:nth-child(4n - 3),
+                &:nth-child(4n - 2),
+                &:nth-child(4n - 1){
+                    position: relative;
+
+                    &::after{
+                        position: absolute;
+                        content: '';
+                        top: 0;
+                        left: calc(100% + var(--itemPaddingX));
+                        width: rem(1);
+                        height: 100%;
+                        background-color: var(--dark-color-15);
+                    }
+                }
+            }
+        }
+
+        @include tablet{
+            --cols: 2;
+        }
+
+        @include mobile{
+            --cols: 1;
         }
     }
 
