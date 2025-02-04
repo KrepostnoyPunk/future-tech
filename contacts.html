@@ -6,6 +6,7 @@
     <title>Future Tech | Contact</title>
     <link rel="icon" href="./assets/icons/label.png">
     <link rel="stylesheet" href="./styles/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/7.6.1/imask.min.js" integrity="sha512-+3RJc0aLDkj0plGNnrqlTwCCyMmDCV1fSYqXw4m+OczX09Pas5A/U+V3pFwrSyoC1svzDy40Q9RU/85yb/7D2A==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
     <script src="./scripts/main.js" type="module" defer></script>
 </head>
 <body>
@@ -54,7 +55,7 @@
                                 </a>
                             </li>
                             <li class="header__menu-item">
-                                <a href="./recources.html" class="header__menu-link">
+                                <a href="./resources.html" class="header__menu-link">
                                     Resources
                                 </a>
                             </li>
@@ -218,8 +219,18 @@
                                             Phone Number <span class="field__required" aria-hidden="true">*</span>
                                         </label>
                                         <div class="field__body">
-                                            <div class="field__select select">SELECT</div>
-                                            <input id="phoneNumber" type="tel" class="field__input" placeholder="(111) 111-11-11" required>
+                                            <div class="field__select select field">
+                                                <label for="phoneNumberPrefix" class="select__label visually-hidden">
+                                                    Phone number prefix
+                                                </label>
+                                                <select id="phoneNumberPrefix" class="select__original-controls field__input">
+                                                    <option value="+1" selected>+1</option>
+                                                    <option value="+2">+2</option>
+                                                    <option value="+3">+3</option>
+                                                    <option value="+4">+4</option>
+                                                </select>
+                                            </div>
+                                            <input id="phoneNumber" type="tel" class="field__input" placeholder="(111) 111-11-11" data-js-input-mask="(000) 000-00-00" required>
                                         </div>
                                     </div>
                                     <div class="contact-form__cell contact-form__cell--wide field">
@@ -283,7 +294,7 @@
                                         </details>
                                         <div class="accordion__content" id="faq-1" role="definition">
                                             <div class="accordion__content-inner">
-                                                <div class="accordion__content__body">
+                                                <div class="accordion__content-body">
                                                     <p>
                                                         AI stands for Artificial Intelligence, which refers to the simulation of human intelligence in machines. It enables them to perform tasks like problem-solving, learning, and decision-making.
                                                     </p>
@@ -303,7 +314,7 @@
                                         </details>
                                         <div class="accordion__content" id="faq-2" role="definition">
                                             <div class="accordion__content-inner">
-                                                <div class="accordion__content__body">
+                                                <div class="accordion__content-body">
                                                     <p>
                                                         AI stands for Artificial Intelligence, which refers to the simulation of human intelligence in machines. It enables them to perform tasks like problem-solving, learning, and decision-making.
                                                     </p>
@@ -323,7 +334,7 @@
                                         </details>
                                         <div class="accordion__content" id="faq-3" role="definition">
                                             <div class="accordion__content-inner">
-                                                <div class="accordion__content__body">
+                                                <div class="accordion__content-body">
                                                     <p>
                                                         AI stands for Artificial Intelligence, which refers to the simulation of human intelligence in machines. It enables them to perform tasks like problem-solving, learning, and decision-making.
                                                     </p>
@@ -343,7 +354,7 @@
                                         </details>
                                         <div class="accordion__content" id="faq-4" role="definition">
                                             <div class="accordion__content-inner">
-                                                <div class="accordion__content__body">
+                                                <div class="accordion__content-body">
                                                     <p>
                                                         AI stands for Artificial Intelligence, which refers to the simulation of human intelligence in machines. It enables them to perform tasks like problem-solving, learning, and decision-making.
                                                     </p>
@@ -363,7 +374,7 @@
                                         </details>
                                         <div class="accordion__content" id="faq-5" role="definition">
                                             <div class="accordion__content-inner">
-                                                <div class="accordion__content__body">
+                                                <div class="accordion__content-body">
                                                     <p>
                                                         AI stands for Artificial Intelligence, which refers to the simulation of human intelligence in machines. It enables them to perform tasks like problem-solving, learning, and decision-making.
                                                     </p>

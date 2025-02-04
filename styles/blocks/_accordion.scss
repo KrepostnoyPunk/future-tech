@@ -1,11 +1,78 @@
 @use '../tools' as *;
 
 .accordion{
-    &__sumary{
+    &__details{
+        &[open]{ // когда есть атрибут open
+            .accordion__title{
+                &::before,
+                &::after{
+                    background-color: var(--light-color);
+                }
+
+                &::after{
+                    rotate: 0deg;
+                }
+            }
+
+            & + .accordion__content{ // только если у соседнего элемента на том же уровне (accordion__details) есть атрибут open - раскроется accordion__content
+                grid-template-rows: 1fr;
+            }
+        }
+    }
+
+    &__summary{
+        color: var(--light-color);
         list-style: none;
 
         &::-webkit-details-marker{
             display: none;
+        }
+
+        @include hover{
+            color: var(--accent-color);
+            cursor: pointer;
+        }
+    }
+
+    &__title{
+        color: inherit; // унаследует изменение цвета при наведении
+        position: relative;
+        padding-right: rem(50);
+        transition-duration: var(--transition-duration);
+
+        &::before,
+        &::after{
+            @include abs-y;
+
+            content: '';
+            width: rem(16);
+            height: rem(2);
+            background-color: var(--accent-color);
+            right: 0;
+            border-radius: 1rem;
+            transition-duration: var(--transition-duration);
+        }
+
+        &::after{
+            rotate: 90deg;
+        }
+    }
+
+    &__content{
+        display: grid;
+        grid-template-rows: 0fr;
+        transition-duration: var(--transition-duration);
+
+        &-inner{
+            overflow: hidden;
+        }
+
+        &-body{
+            --offsetTop: #{fluid(24, 16)}; // вертикальный внутренний отступ
+
+            margin-top: var(--offsetTop);
+            padding-top: var(--offsetTop);
+            border-top: var(--border);
         }
     }
 }
