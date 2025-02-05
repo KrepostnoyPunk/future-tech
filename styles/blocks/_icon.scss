@@ -19,7 +19,7 @@
 
     &--yellow-arrow{ // модификатор конкретной иконки
         &::after{
-            background-image: url('../../assets/icons/arrow-up-right--yellow.svg');
+            background-image: url('../assets/icons/arrow-up-right--yellow.svg');
 
             @include laptop{
                 --size: #{rem(14)};
@@ -31,7 +31,7 @@
         &::after{
             --size: #{rem(24)};
             
-            background-image: url('../../assets/icons/yellow-eye.svg');
+            background-image: url('../assets/icons/yellow-eye.svg');
 
             @include laptop{
                 --size: #{rem(20)};
@@ -43,7 +43,7 @@
         &::after{
             --size: #{rem(24)};
             
-            background-image: url('../../assets/icons/arrow-down-gray.svg');
+            background-image: url('../assets/icons/arrow-down-gray.svg');
 
             @include laptop{
                 --size: #{rem(20)};
