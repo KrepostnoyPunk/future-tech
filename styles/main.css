@@ -503,7 +503,7 @@ a[aria-label]::before, button[aria-label]::before {
   background-size: contain;
 }
 .icon--yellow-arrow::after {
-  background-image: url("../../assets/icons/arrow-up-right--yellow.svg");
+  background-image: url("../assets/icons/arrow-up-right--yellow.svg");
 }
 @media (width <= 90.06125rem) {
   .icon--yellow-arrow::after {
@@ -512,7 +512,7 @@ a[aria-label]::before, button[aria-label]::before {
 }
 .icon--yellow-eye::after {
   --size: 1.5rem;
-  background-image: url("../../assets/icons/yellow-eye.svg");
+  background-image: url("../assets/icons/yellow-eye.svg");
 }
 @media (width <= 90.06125rem) {
   .icon--yellow-eye::after {
@@ -521,7 +521,7 @@ a[aria-label]::before, button[aria-label]::before {
 }
 .icon--arrow-gray-down::after {
   --size: 1.5rem;
-  background-image: url("../../assets/icons/arrow-down-gray.svg");
+  background-image: url("../assets/icons/arrow-down-gray.svg");
 }
 @media (width <= 90.06125rem) {
   .icon--arrow-gray-down::after {
