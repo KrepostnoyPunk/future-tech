@@ -1710,7 +1710,7 @@ a[aria-label]::before, button[aria-label]::before {
   }
 }
 .rating__star.is-active {
-  background-image: url("../../assets/icons/star--active.svg");
+  background-image: url("../assets/icons/star--active.svg");
 }
 
 .testimonials-card {
