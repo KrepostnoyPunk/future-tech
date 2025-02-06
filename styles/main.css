@@ -1703,7 +1703,7 @@ a[aria-label]::before, button[aria-label]::before {
   --size: 1.5rem;
   width: var(--size);
   height: var(--size);
-  background: url("../../assets/icons/star.svg") center/contain no-repeat;
+  background: url("../assets/icons/star.svg") center/contain no-repeat;
 }
 @media (width <= 90.06125rem) {
   .rating__star {
@@ -1711,7 +1711,7 @@ a[aria-label]::before, button[aria-label]::before {
   }
 }
 .rating__star.is-active {
-  background-image: url("../../assets/icons/star--active.svg");
+  background-image: url("../assets/icons/star--active.svg");
 }
 
 .testimonials-card {
