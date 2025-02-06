@@ -63,7 +63,7 @@
     
                 // горизонтальные разделители по низам для элементов 2 колонки т.к. она центр
                 &:nth-child(3n - 1){
-                    @include full-vw-centered(bottom);
+                    @include full-vw-centered(top);
                 }
             }
         }
