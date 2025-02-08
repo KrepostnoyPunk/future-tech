@@ -339,7 +339,7 @@ svg * {
   translate: 0 -50%;
   right: 0;
   content: "";
-  background: url("../../assets/icons/arrow-up-right--black.svg") center no-repeat var(--accent-color);
+  background: url("../assets/icons/arrow-up-right--black.svg") center no-repeat var(--accent-color);
   border-radius: var(--circle-border-radius);
 }
 
