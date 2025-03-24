@@ -2,7 +2,7 @@
 
 .blog-open{
     &__banner{
-        --bgImg: url('../../assets/images/banner.jpg');
+        --bgImg: url('../assets/images/banner.jpg');
 
         display: flex;
         align-items: end;
@@ -12,7 +12,7 @@
         padding-block: fluid(65, 17);
 
         @include mobile{
-            --bgImg: url('../../assets/images/banner-mobile.jpg');
+            --bgImg: url('../assets/images/banner-mobile.jpg');
         }
     }
 
